@@ -1,0 +1,24 @@
+.tour-banner{
+    background-image: url('https://i.pinimg.com/originals/67/69/4f/67694fd5478c2f8d4e05c391e4088e3e.jpg');
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+    background-attachment: scroll;
+    background-blend-mode: overlay;
+}
+.title{
+    color:black;
+    font-weight: 900;
+    font-size: 40px;
+}
+.sub-title{
+    color: black;
+    font-size: 30px;
+}
+.service-title{
+    color:goldenrod;
+    font-weight: 900;
+    font-size: 48px;
+}
