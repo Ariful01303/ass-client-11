@@ -19,8 +19,15 @@ const Header = () => {
       <Nav.Link as ={HashLink} to="/home#service">Service</Nav.Link>
       <Nav.Link as ={Link} to="/services">Services</Nav.Link>
       <Nav.Link as ={Link} to="/about">About Us</Nav.Link>
-
-      {user?.email? <Button onClick={logOut} variant="danger">LogOut</Button>:
+      {user?.email?
+     <div className="d-flex">
+          <Nav.Link as ={Link} to="/manageorder">Manage order</Nav.Link>
+          <Nav.Link as ={Link} to="/myorder">My Orders</Nav.Link>
+          <Nav.Link as ={Link} to="/addservice">Add Orders</Nav.Link>
+          <Button onClick={logOut} variant="danger">LogOut</Button>
+     </div>
+      
+      :
       <Nav.Link as ={Link} to="/login">login</Nav.Link>}
 
      { user?.email?<Navbar.Text className="d-flex ms-5"><p className="text-danger">{user?.displayName} </p> {user?.photoURL?<img className="header-photo" src={user?.photoURL} alt="" />:<p className="text-danger"> {user?.email}</p>}

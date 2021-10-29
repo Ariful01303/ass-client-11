@@ -9,6 +9,9 @@ import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import PrivateRoute from './components/Private/PrivateRoute';
 import Services from './components/Services/Services';
+import ManageOrders from './components/ManageOrder/ManageOrders';
+import MyOrders from './components/My Orders/MyOrders';
+import AddNewService from './components/AddNewService/AddNewService';
 
 function App() {
   return (
@@ -29,6 +32,15 @@ function App() {
      <PrivateRoute path="/services">
        <Services></Services>
      </PrivateRoute>
+     <Route path="/manageorder">
+       <ManageOrders></ManageOrders>
+     </Route>
+     <Route path="/myorder">
+       <MyOrders></MyOrders>
+     </Route>
+     <Route path="/addservice">
+       <AddNewService></AddNewService>
+     </Route>
      <Route path="/*">
        <NoFound></NoFound>
      </Route>
