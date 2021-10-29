@@ -2,13 +2,11 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-// import useAuth from '../Hooks/useAuth';
-
-
-
+import useAuth from '../Firebase/useAuth';
+import './Header.css'
 
 const Header = () => {
-//  const {user,logOut}= useAuth()
+ const {user,logOut}= useAuth()
     return (
         <div>
              <Navbar bg="dark" variant="dark" sticky="top" collapseOnSelect expand="lg">
@@ -19,14 +17,15 @@ const Header = () => {
 
       <Nav.Link as ={HashLink} to="/home#home">Home</Nav.Link>
       <Nav.Link as ={HashLink} to="/home#service">Service</Nav.Link>
-      <Nav.Link as ={Link} to="/dantists">Our Dentists</Nav.Link>
+      <Nav.Link as ={Link} to="/services">Services</Nav.Link>
       <Nav.Link as ={Link} to="/about">About Us</Nav.Link>
 
-     <Button>LogOut</Button>
-      <Nav.Link as ={Link} to="/login">login</Nav.Link>
+      {user?.email? <Button onClick={logOut} variant="danger">LogOut</Button>:
+      <Nav.Link as ={Link} to="/login">login</Nav.Link>}
 
-     
-     <Navbar.Text className="d-flex ms-5"><p className="col-title">Please Login</p></Navbar.Text>
+     { user?.email?<Navbar.Text className="d-flex ms-5"><p className="text-danger">{user?.displayName} </p> {user?.photoURL?<img className="header-photo" src={user?.photoURL} alt="" />:<p className="text-danger"> {user?.email}</p>}
+      </Navbar.Text>
+      :<p className="text-danger">Please Login</p>}
     </Navbar.Collapse>
    
     </Container>

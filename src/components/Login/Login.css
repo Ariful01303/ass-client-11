@@ -1,0 +1,16 @@
+.iconeg{
+    font-weight: 200;
+    color: goldenrod;
+    font-size: 40px;
+    margin-right: 10px;
+}
+.login-banner{
+    background-image: url('https://hyperhci.com/wp-content/uploads/2019/07/ebale-nutanix-cvm-ahv-login-banner-1-1.jpg');
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+    background-attachment: scroll;
+    background-blend-mode: overlay;
+}
