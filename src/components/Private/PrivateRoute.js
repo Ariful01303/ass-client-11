@@ -5,7 +5,7 @@ import useAuth from '../Firebase/useAuth';
 const PrivateRoute = ({children,...rest}) => {
   const { user, loading } = useAuth();
   if (loading)
-   return  <Spinner animation="border" variant="dark" />;
+   return  <Spinner animation="border" variant="warning" />;
     return (
         <Route
         {...rest}

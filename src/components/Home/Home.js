@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import useAuth from '../Firebase/useAuth';
 import'./Home.css'
 const Home = () => {
+    const {user}=useAuth();
     const [services,setServices]=useState([])
     useEffect(()=>{
           fetch('http://localhost:5000/services')
           .then(res=>res.json())
           .then(data=>setServices(data))  
     },[])
-    console.log(services)
+    const hnadleBooking = (index) => {
+        const data = services[index];
+        data.email = user?.email
+        fetch(`http://localhost:5000/addBooking`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+         
+      };
+    
     return (
         <div>
             <h1>total :{services.length}</h1>
@@ -29,13 +42,13 @@ const Home = () => {
           <div className="container">
           <div className="d-flex row mb-2 p-5">
                 {
-                    services.map(service=><div className="col-lg-4 col-md-6 col-sm-12 col-12 extra-style g-2 p-2">
+                    services.map((service,index)=><div className="col-lg-4 col-md-6 col-sm-12 col-12 extra-style g-2 p-2">
                          <img className="img-fluid" src={service.img} alt="" />
                        <div className="bg-primary text-light p-4">
                        <p>{service.title}</p>
                         <h3>{service.description}</h3>
                         <p>{service.price}per person</p>
-                        <button className="btn btn-warning">Select</button>
+                        <button onClick={()=>hnadleBooking(index)} className="btn btn-warning">Select</button>
                        </div>
                        
 
