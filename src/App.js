@@ -35,9 +35,9 @@ function App() {
      <Route path="/manageorder">
        <ManageOrders></ManageOrders>
      </Route>
-     <Route path="/myorder">
+     <PrivateRoute path="/booking/:idNo">
        <MyOrders></MyOrders>
-     </Route>
+     </PrivateRoute>
      <Route path="/addservice">
        <AddNewService></AddNewService>
      </Route>
