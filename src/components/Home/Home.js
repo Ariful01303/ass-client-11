@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
-import useAuth from '../Firebase/useAuth';
+import AddNewService from '../AddNewService/AddNewService';
 import Service from '../Service/Service';
 import'./Home.css'
 const Home = () => {
@@ -59,7 +58,9 @@ const Home = () => {
           <div className="container">
           <div className="d-flex row mb-2 p-5">
                 {
-                    services.map((service,index)=><Service service={service}></Service>)
+                    services.map((service,index)=><Service
+                    key={service._id}
+                    service={service}></Service>)
                        
 
                     

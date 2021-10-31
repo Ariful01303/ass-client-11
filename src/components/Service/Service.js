@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Service = (props) => {
-    const { _id,name, photo, price, description,  } = props.service;
+    const { _id} = props.service;
 
     return (
         
@@ -11,9 +11,10 @@ const Service = (props) => {
                        <div className="bg-primary text-light p-4">
                        <p>{props.service.name}</p>
                         <h3>{props.service.description}</h3>
+                        <h3>{props.service.location}</h3>
                         <p>{props.service.package}per person</p>
                         <Link to={`/booking/${_id}`}>
-                <button className="btn btn-warning">Book {name?.toLowerCase()}</button>
+                <button className="btn btn-warning">Book {}</button>
             </Link>
                        </div>
         </div>
