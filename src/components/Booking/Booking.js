@@ -3,7 +3,7 @@ import useAuth from '../Firebase/useAuth';
 
 const Booking = () => {
 const {user}=useAuth()
-const email=user.email;
+const email=user?.email;
 const [booking,setBooking]=useState([])
 
 useEffect(()=>{
@@ -11,7 +11,7 @@ useEffect(()=>{
     .then(res=>res.json())
     .then(data=>setBooking(data))
 
-},[])
+},[user?.email])
 
 const handleDeleteProduct = (id) => {
     // console.log(id);

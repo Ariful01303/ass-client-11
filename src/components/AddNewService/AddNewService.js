@@ -30,7 +30,7 @@ const AddNewService = () => {
       <input className="p-2 m-2 w-50" type="number" {...register("price")} placeholder="Perday Amount"/> <br />
       <input className="p-2 m-2 w-50" type="text" {...register("package")} placeholder="Day of Package"/> <br />
       <input className="p-2 m-2 w-50" type="text" {...register("location")} placeholder="Location"/> <br />
-      <input className="p-2 m-2 w-50" {...register("photo")} placeholder="Img Url"/> <br />
+     <input className="p-2 m-2 w-50" {...register("photo")} placeholder="Img Url"/> <br />
       <input className="btn btn-primary" type="submit" />
     </form>
         </div>
