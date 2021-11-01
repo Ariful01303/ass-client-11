@@ -6,18 +6,24 @@ const Service = (props) => {
 
     return (
         
-            <div className="col-lg-4 col-md-6 col-sm-12 col-12 extra-style g-2 p-2">
-                         <img className="img-fluid" src={props.service.photo} alt="" />
-                       <div className="bg-primary text-light p-4">
-                       <p>{props.service.name}</p>
-                        <h3>{props.service.description}</h3>
-                        <h3>{props.service.location}</h3>
-                        <p>{props.service.package}per person</p>
+          
+                <div className="col-lg-4 col-md-6 g-2 col-sm-12 col-12 border extra-style">
+                         <img className="w-75 p-2 " src={props.service.photo} alt="" />
+                       <div className="text-dark p-2">
+                       <p>{props.service.place}</p>
+                        <p>{props.service.description.slice(0,200)}</p>
+                        <p>Location: {props.service.location}</p>
+                         
+                      <div className="d-flex justify-content-between pb-2 ">
+                      <p>{props.service.package} Days</p>
                         <Link to={`/booking/${_id}`}>
-                <button className="btn btn-warning">Book {}</button>
+                <button className="btn btn-warning">Booking Detail</button>
             </Link>
+                      </div>
+                        
                        </div>
         </div>
+         
     );
 };
 

@@ -13,7 +13,7 @@ import ManageOrders from './components/ManageOrder/ManageOrders';
 import MyOrders from './components/My Orders/MyOrders';
 import AddNewService from './components/AddNewService/AddNewService';
 import Booking from './components/Booking/Booking';
-import Service from './components/Service/Service';
+
 
 
 function App() {

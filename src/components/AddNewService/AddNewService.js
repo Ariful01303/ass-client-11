@@ -19,7 +19,8 @@ const AddNewService = () => {
   };  
  console.log(onSubmit)
     return (
-        <div className="container mb-5">
+        <div className="container mb-5 mt-5 extra-sty col-lg-6 m-auto col-md-6 col-sm-12 p-2 col-12 w-50 ">
+         
             <h3>Add Torist Spot Details</h3>
              <form onSubmit={handleSubmit(onSubmit)}>
    

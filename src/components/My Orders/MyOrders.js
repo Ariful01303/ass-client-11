@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../Firebase/useAuth';
-
+import './dash.css'
 import { useForm } from "react-hook-form";
 
  
@@ -78,28 +78,37 @@ const MyOrders = () => {
 //   };
 
     return (
-       <div>
-            <div className="text-center">
-           
-           
-           <h2>{detail?.title}</h2>
-           {/* <button onClick={handleAddtobook} className="btn btn-primary">Booking</button> */}
+        <div className="div d-flex container   mt-5 mb-5 justify-content-center align-items-center">
+        <div className="row p-2">
+        <div className="col-lg-6 extra-style  col-md-6 col-sm-12 col-12">
+           <img className="img-fluid p-2" src={detail?.photo} alt="" />
+           <h4>{detail?.place}</h4>
+           <h3>{detail?.description}</h3>
+           <h3>{detail?.package}</h3>
+           <h3>{detail?.price}</h3>
+           <h2>Order By: {user?.displayName}</h2>
+          {/* <button onClick={handleAddtobook} className="btn btn-primary">Booking</button> */}
         </div>
-        <div className="container mb-5">
-            <h3>Add Torist Spot Details</h3>
+        <div  className="extra-sty col-lg-6 m-auto col-md-6 col-sm-12 p-2 col-12 w-50  ">
+        
+            <h3>Add Torist Details</h3>
              <form onSubmit={handleSubmit(onSubmit)}>
    
      
-      <input className="p-2 m-2 w-50" type="text" {...register("displayName")} defaultValue={user.displayName}/> <br />
-      <input className="p-2 m-2 w-50" type="email" {...register("email")} defaultValue={user.email} /> <br />
-      <input className="p-2 m-2 w-50" type="text" {...register("title")}defaultValue={detail?.title} placeholder="title"/> <br />
-      <input className="p-2 m-2 w-50" type="text" {...register("description")} placeholder="Description"/> <br />
-      <input className="p-2 m-2 w-50" type="number" {...register("price")} placeholder="price"/> <br />
-      <input className="p-2 m-2 w-50" type="text" {...register("package")} placeholder="Day of package"/> <br />
-      <input className="p-2 m-2 w-50" {...register("img")} placeholder="Img Url"/> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("displayName")} defaultValue={user.displayName}/> <br />
+      <input className="p-2 m-2 w-75" type="email" {...register("email")} defaultValue={user.email} /> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("place")}defaultValue={detail?.place} placeholder="title"/> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("description")}   placeholder="Your location"/> <br />
+      <input className="p-2 m-2 w-75" type="number" {...register("price")} placeholder="price"/> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("package")} placeholder="Day of package"/> <br />
+      <input className="p-2 m-2 w-75" {...register("date")} type="date"/> <br />
+              
+      <input className="p-2 m-2 w-75" {...register("img")} placeholder="Img Url"/> <br />
       <input className="btn btn-primary" type="submit" />
     </form>
+       
         </div>
+      </div>
        </div>
     );
 };

@@ -56,8 +56,10 @@ const Home = () => {
             </div>
 
           <div className="container">
-          <div className="d-flex row mb-2 p-5">
-                {
+          <div className="d-flex p-5 ">
+
+             <div className="row">
+             {
                     services.map((service,index)=><Service
                     key={service._id}
                     service={service}></Service>)
@@ -65,6 +67,7 @@ const Home = () => {
 
                     
                }
+             </div>
             </div>
           </div>
         </div>
