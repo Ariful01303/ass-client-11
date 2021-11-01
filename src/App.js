@@ -9,7 +9,7 @@ import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import PrivateRoute from './components/Private/PrivateRoute';
 import Services from './components/Services/Services';
-import ManageOrders from './components/ManageOrder/ManageOrders';
+
 import MyOrders from './components/My Orders/MyOrders';
 import AddNewService from './components/AddNewService/AddNewService';
 import Booking from './components/Booking/Booking';
@@ -35,9 +35,9 @@ function App() {
      <PrivateRoute path="/services">
        <Services></Services>
      </PrivateRoute>
-     <Route path="/manageorder">
+     {/* <Route path="/manageorder">
        <ManageOrders></ManageOrders>
-     </Route>
+     </Route> */}
      <PrivateRoute path="/booking/:idNo">
        <MyOrders></MyOrders>
      </PrivateRoute>

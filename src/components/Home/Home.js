@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import AddNewService from '../AddNewService/AddNewService';
+
 import Service from '../Service/Service';
 import'./Home.css'
+const url=(`https://3gwifi.net/wp-content/uploads/2018/05/khai-niem-travel.jpg`)
+
 const Home = () => {
     
     
     const [services,setServices]=useState([])
+    const [clients,setClients]=useState([])
    
   
     useEffect(()=>{
@@ -14,32 +17,18 @@ const Home = () => {
           .then(data=>setServices(data)) 
           
     },[])
-    // const hnadleBooking = (index) => {
-    //     const data = services[index];
-    //     data.email = user?.email
-    //     fetch(`http://localhost:5000/addBooking${user.email}`, {
-    //       method: "POST",
-    //       headers: { "content-type": "application/json" },
-    //       body: JSON.stringify(data),
-    //     })
-    //       .then((res) => res.json())
-    //       .then((result) => {
-           
-    //         if (result.insertedId) {
-    //           alert("Conform your Booking");
-    //         } 
-    //         else {
-    //           alert("Already added");
-    //         }
-    //       });
-        
-    
-         
+    useEffect(()=>{
+          fetch('http://localhost:5000/clients')
+          .then(res=>res.json())
+          .then(data=>setClients(data)) 
+          
+    },[])
+  
       
     
     return (
         <div>
-            <h1>total :{services.length}</h1>
+            
             <div className="tour-banner mb-5 d-flex justify-content-center align-items-center"id="home">
                 <div   className="container">
                     <div className="row">
@@ -56,8 +45,9 @@ const Home = () => {
             </div>
 
           <div className="container">
+          <h2 className="text-danger">Perfect for Travel</h2>
           <div className="d-flex p-5 ">
-
+               
              <div className="row">
              {
                     services.map((service,index)=><Service
@@ -70,6 +60,37 @@ const Home = () => {
              </div>
             </div>
           </div>
+
+           <div className="container"id="client-sec">
+               <div className="d-flex row">
+                   <h2 className="text-danger">Happy Travelers</h2>
+               {
+                   clients.map(client=><div className="col-xl-3 col-md-3 col-sm-6 col-6 p-2 client borer text-center" key={client._id}>
+                       <img className="img-fluid" src={client.pictur} alt="" />
+                       <h2> {client.name} </h2>
+                      
+                   </div>)
+               }
+               </div>
+           </div>
+           <div id="about">
+           <div>
+             <div className="mt-5 mb-5 container">
+            <h2 className="text-danger mt-5 mb-5" id="about">About us</h2>
+            <div className="d-flex justify-content-cente align-items-center row ">
+            <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+              <p>Our Focus is on Boutique-Style Hotels and Unique Travel Experiences Worldwide. Contact Us. Join Our Membership Or Book A One Time Trip For Customized Itineraries. Book Your Trip! Customized Itineraries. Boutique Hotels. Hassle-Free Process. Destinations: Asia, Europe, Oceania, The Middle East, North America, Africa, South America.</p>
+             </div>
+
+             <div className="col-lg-6">
+               <img className="w-100 p-3" src={url}alt="" />
+            </div>
+            </div>
+            
+
+            </div>
+        </div>
+           </div>
         </div>
     );
 };
