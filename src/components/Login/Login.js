@@ -36,7 +36,7 @@ const Login = () => {
                 ><i class="fab fa-google-plus iconeg"></i>Google Sign In
                 </button>}
                
-                <h4 className="pt-5 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae officia praesentium quidem pariatur, iure sit molestiae assumenda quisquam animi!</h4>
+                <h4 className="pt-5 text-dark">Click Google SingIn Button</h4>
               </div>
              
         </div>
