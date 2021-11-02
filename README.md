@@ -7,9 +7,9 @@ Clint live site  [Tour BD](https://tour-bd-eb5b9.web.app).
 server live site  [Tour BD](https://intense-fortress-98735.herokuapp.com).
 
 
-## This website help you to tour wurld wide
+## This website help you to tour world wide
  
-## At first you need create a account you can easyly do it click login 
+## At first you need create a account . you can easyly do it click login 
 
 ## You can choose your tourst spot and send to your details 
 
