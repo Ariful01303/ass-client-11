@@ -14,7 +14,7 @@ const MyOrders = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data =>{
    
-      fetch("http://localhost:5000/booking", {
+      fetch("https://intense-fortress-98735.herokuapp.com/booking", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
@@ -25,7 +25,7 @@ const MyOrders = () => {
     };  
 
     useEffect(()=>{
-         fetch('http://localhost:5000/services')
+         fetch('https://intense-fortress-98735.herokuapp.com/services')
          .then(res=>res.json())
          .then(data=>setDetails(data))
     },[])
@@ -53,14 +53,14 @@ const MyOrders = () => {
              <form onSubmit={handleSubmit(onSubmit)}>
    
      
-      <input className="p-2 m-2 w-75" type="text" {...register("displayName")} defaultValue={user?.displayName}/> <br />
-      <input className="p-2 m-2 w-75" type="email" {...register("email")} defaultValue={user?.email} /> <br />
-      <input className="p-2 m-2 w-75" type="text" {...register("place")}defaultValue={detail?.place} placeholder="Title"/> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("displayName")} defaultValue={user?.displayName || ''}/> <br />
+      <input className="p-2 m-2 w-75" type="email" {...register("email")} defaultValue={user?.email || ''} /> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("place")}defaultValue={detail?.place || ''} placeholder="Title"/> <br />
      
-      <input className="p-2 m-2 w-75" type="number" {...register("price")} defaultValue={detail?.price} placeholder="Price"/> <br />
+      <input className="p-2 m-2 w-75" type="number" {...register("price")} defaultValue={detail?.price || ''} placeholder="Price"/> <br />
       <input className="p-2 m-2 w-75" type="text" {...register("location")}   placeholder="Your location"/> <br />
       <input className="p-2 m-2 w-75" type="number" {...register("contact")} placeholder="Your Contact Number"/> <br />
-      <input className="p-2 m-2 w-75" type="text" {...register("package")}  defaultValue={detail?.package} placeholder="Day of Package"/> <br />
+      <input className="p-2 m-2 w-75" type="text" {...register("package")}  defaultValue={detail?.package || ''} placeholder="Day of Package"/> <br />
       <input className="p-2 m-2 w-75" {...register("date")} type="date"/> <br />
               
       <input className="p-2 m-2 w-75" {...register("img")} placeholder="Send Your Img Url"/> <br />

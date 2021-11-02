@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import useAuth from '../Firebase/useAuth';
 
 import Service from '../Service/Service';
 import'./Home.css'
@@ -6,19 +8,19 @@ const url=(`https://3gwifi.net/wp-content/uploads/2018/05/khai-niem-travel.jpg`)
 
 const Home = () => {
     
-    
+    const {loading}=useAuth()
     const [services,setServices]=useState([])
     const [clients,setClients]=useState([])
    
   
     useEffect(()=>{
-          fetch('http://localhost:5000/services')
+          fetch('https://intense-fortress-98735.herokuapp.com/services')
           .then(res=>res.json())
           .then(data=>setServices(data)) 
           
     },[])
     useEffect(()=>{
-          fetch('http://localhost:5000/clients')
+          fetch('https://intense-fortress-98735.herokuapp.com/clients')
           .then(res=>res.json())
           .then(data=>setClients(data)) 
           
@@ -28,8 +30,9 @@ const Home = () => {
     
     return (
         <div>
-            
-            <div className="tour-banner mb-5 d-flex justify-content-center align-items-center"id="home">
+           
+         
+          <div className="tour-banner mb-5 d-flex justify-content-center align-items-center"id="home">
                 <div   className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-10 mb-5">
@@ -43,9 +46,11 @@ const Home = () => {
                 </div>
                
             </div>
-
+           
           <div className="container">
           <h2 className="text-danger">Perfect for Travel</h2>
+          {loading?<Spinner animation="border" variant="warning" /> : 
+          <div>
           <div className="d-flex p-5 ">
                
              <div className="row">
@@ -59,11 +64,16 @@ const Home = () => {
                }
              </div>
             </div>
-          </div>
-
+            </div>}
+            </div>
+         
+             
            <div className="container"id="client-sec">
+           <h2 className="text-danger">Happy Travelers</h2>
+           {loading?<Spinner animation="border" variant="warning" /> : 
+          <div>
                <div className="d-flex row">
-                   <h2 className="text-danger">Happy Travelers</h2>
+                   
                {
                    clients.map(client=><div className="col-xl-3 col-md-3 col-sm-6 col-6 p-2 client borer text-center" key={client._id}>
                        <img className="img-fluid" src={client.pictur} alt="" />
@@ -72,6 +82,7 @@ const Home = () => {
                    </div>)
                }
                </div>
+               </div>}
            </div>
            <div id="about">
            <div>
@@ -91,6 +102,7 @@ const Home = () => {
             </div>
         </div>
            </div>
+        
         </div>
     );
 };

@@ -8,7 +8,7 @@ const AddNewService = () => {
     const { register, handleSubmit,reset } = useForm();
   const onSubmit = data =>{
  
-    fetch("http://localhost:5000/services", {
+    fetch("https://intense-fortress-98735.herokuapp.com/services", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

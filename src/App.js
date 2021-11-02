@@ -8,11 +8,10 @@ import NoFound from './components/NoFound/NoFound';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import PrivateRoute from './components/Private/PrivateRoute';
-import Services from './components/Services/Services';
-
 import MyOrders from './components/My Orders/MyOrders';
 import AddNewService from './components/AddNewService/AddNewService';
 import Booking from './components/Booking/Booking';
+
 
 
 
@@ -32,10 +31,8 @@ function App() {
      <Route path="/login">
        <Login></Login>
      </Route>
-     <PrivateRoute path="/services">
-       <Services></Services>
-     </PrivateRoute>
-     {/* <Route path="/manageorder">
+     
+     {/* <Route exact path="/manageorder/:idad">
        <ManageOrders></ManageOrders>
      </Route> */}
      <PrivateRoute path="/booking/:idNo">
