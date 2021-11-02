@@ -21,9 +21,9 @@ const Header = () => {
      
       {user?.email?
      <div className="d-flex">
-          <Nav.Link as ={Link} to="/manageorder">Manage order</Nav.Link>
-          <Nav.Link as ={Link} to="/books">My Orders</Nav.Link>
-          <Nav.Link as ={Link} to="/addservice">Add Orders</Nav.Link>
+          <Nav.Link as ={Link} to="/manageorder">Manage Booking</Nav.Link>
+          <Nav.Link as ={Link} to="/books">My Booking</Nav.Link>
+          <Nav.Link as ={Link} to="/addservice">Add Service</Nav.Link>
          
           <Button onClick={logOut} variant="danger">LogOut</Button>
         
